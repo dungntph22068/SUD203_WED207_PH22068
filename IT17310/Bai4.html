@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link rel="stylesheet" href="bai4.css">
+</head>
+<body ng-app="angularjs-form">
+    <div ng-controller="loopController">
+
+        <h2>Ho ten: Nguyen Tien Dung</h2>
+        <h2>MSSV: PH22068</h2>
+        <br>
+        <button type="button" class="btn btn-primary anh1">+ Thêm </button>
+        <!-- <a href="#"><i class="main-menu-right_i fas fa-shopping-cart"></i></a> -->
+
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Mô tả</th>
+                <th scope="col">Ảnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="sinhvien in dssv">
+                <td>{{sinhvien.id}}</td>
+                <td>{{sinhvien.name}}</td>
+                <td>{{sinhvien.mota}}</td>
+                <td><img src="{{sinhvien.link}}" width="50px" height="50px" alt="" ></td>
+              </tr>
+              <!-- <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
+          <div class="gio1">
+            <section class="cart">
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">ID</label>
+                <input ng-model="dssvTrong.id" type="text" class="form-control" id="formGroupExampleInput" style="width: 250px;" placeholder="Example input placeholder">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Tên</label>
+                <input ng-model="dssvTrong.name" type="text" class="form-control" id="formGroupExampleInput" style="width: 250px;" placeholder="Example input placeholder">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Mô tả</label>
+                <input ng-model="dssvTrong.mota" type="text" class="form-control" id="formGroupExampleInput2" style="width: 250px;" placeholder="Another input placeholder">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Ảnh</label>
+                <input ng-model="dssvTrong.link" type="text" class="form-control" id="formGroupExampleInput2" style="width: 250px;" placeholder="Another input placeholder">
+              </div>
+              <button ng-click="save()" class="btn btn-primary" type="submit">Thêm</button>
+              <button class="btn btn-primary anh2" type="submit">Hủy</button>
+            </section>
+            
+              
+          </div>
+    </div>
+
+
+
+
+
+    <script src="./lib2/angular.min.js"></script>
+    <script>
+          var app=angular.module('angularjs-form',[]);
+          app.controller('loopController',function($scope){
+            $scope.dssvTrong={};
+            $scope.save=function(){
+              $scope.dssv.push(angular.copy($scope.dssvTrong));
+            }
+
+            $scope.dssv=[
+              {id:"PH22068",name:"Nguyen Tien Dung",mota:"hoc gioi",link:"11.jpg"}
+            ]
+          })
+    </script>
+</body>
+<script src="Bai4.js"></script>
+</html>
